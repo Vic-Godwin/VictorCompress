@@ -44,27 +44,108 @@ cd VictorCompress
 
 ## 📁 Project Structure
 VictorCompress/
+
 ├── main.py               # Main GUI app
+
 ├── compress_module.py    # Compression logic (zlib + base64)
+
 ├── readfile.py           # File reader launched from main app
+
 ├── assets/               # Logos/icons (optional)
+
 │   └── victor_logo_64x64.png
+
 ├── docs/
+
 │   └── user_guide.md     # Optional detailed guide
+
 ├── requirements.txt
+
 ├── .gitignore
+
 ├── LICENSE
+
 └── README.md
 
 
-### 🧪 How It Works
-## 🔹 Compression
+# 🧪 How It Works
+### 🔹 Compression
 ```python```
 
 ```compressed = base64.b64encode(zlib.compress(data.encode('utf-8'), 9))```
 
-## 🔹 Decompression
-```python
-original = zlib.decompress(base64.b64decode(encoded_data)).decode('utf-8')```
+### 🔹 Decompression
+```python```
+
+```original = zlib.decompress(base64.b64decode(encoded_data)).decode('utf-8')```
+
+#### Compressed file is saved in .txt format using Base64 encoding.
+
+#### Decompressed output restores the original plain text.
 
 
+
+# 🔑 Usage Flow
+ **1.** **Browse** to select a .txt file.
+ 
+ **2.** **Click Compress** to reduce its size.
+ 
+ **3.** **Click Decompress** to **restore** a file.
+ 
+ **4.** Use the **📋 Clipboard** button to copy file path.
+ 
+ **5.** **Click Open Reader** to launch **readfile.py** and view file contents(though readfile.py isn't fully ready.
+
+
+
+# 📦 Dependencies
+#### List in requirements.txt:
+```ttkbootstrap>=1.10.1```
+
+```pyperclip>=1.8.2(optional). I used the built in clipbboard```
+
+```pip install -r requirements.txt```
+
+
+
+
+## 📝 .gitignore
+```__pycache__/```
+
+```*.pyc```
+
+```*.pyo```
+
+```*.log```
+
+```.DS_Store```
+
+```*.bak```
+
+```*.swp```
+
+```env/```
+
+```venv/```
+
+
+
+# 📘 License
+#### This project is licensed under the MIT License.
+#### See the **LICENSE** file for full details.
+
+
+
+# 🙌 Author
+### Victor Godwin
+#### 🎯 Passionate about clean interfaces, smart compression, and intuitive file utilities.
+#### 📬 GitHub: Vic-Godwin
+
+
+
+# 🌟 Support This Project
+If you find VictorCompress helpful, consider starring ⭐ the repo and sharing it.
+
+```git clone https://github.com/Vic-Godwin/VictorCompress.git```
+
+Feel free to fork, contribute, or improve!
