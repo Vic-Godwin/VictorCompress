@@ -3,6 +3,8 @@
 **VicReader** is a powerful companion utility to [VictorCompress](https://github.com/Vic-Godwin/VictorCompress). It provides an interactive, intelligent interface for reading and analyzing `.txt` files — now enhanced with smart compression and decompression workflows.
 
 ---
+![image](https://github.com/user-attachments/assets/74afa44b-90e8-4207-a9ec-0425a1d7500c)
+
 
 ## 🚀 What’s New
 
