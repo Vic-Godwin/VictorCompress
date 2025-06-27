@@ -132,7 +132,7 @@ VictorCompress/
 
 # 📘 License
 #### This project is licensed under the MIT License.
-#### See the **LICENSE** file for full details.
+#### See the [LICENSE](LICENSE) file for full details.
 
 
 
