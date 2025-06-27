@@ -1,3 +1,4 @@
+
 # VictorCompress
 A modern Python app for compressing and decompressing .txt files using zlib and Base64 — features dark mode, clipboard tools, and a built-in file reader.
 
@@ -12,6 +13,8 @@ VictorCompress is a modern, user-friendly Python desktop app that allows you to 
 ## 📸 how it looks
 
 ![image](https://github.com/user-attachments/assets/05d1d282-3241-4b53-94f2-1c8554f5cb34)
+## the VicReader
+![image](https://github.com/user-attachments/assets/0c8005f0-e21d-4220-bcc5-c44f2c4541db)
 
 
 ## ✨ Features
