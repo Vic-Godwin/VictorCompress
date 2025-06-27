@@ -3,10 +3,9 @@ from tkinter import scrolledtext
 from tkinter import ttk
 import re
 import sys,time
+import base64, zlib
+from compress_module import compress as com, decompress as de
 
-def writeText(text,widget,index=0):
-   if index < len(text):pass
-   
 
 def read():
     file = open(entry.get(),'r')
@@ -23,6 +22,38 @@ def search():
         line = line.rstrip()
         if line.startswith(word):
             text_output.insert("end", line + "\n\n")
+
+def convert():
+    filepath = entry.get()
+    if not filepath:
+        text_output.insert("end", "No file path provided.\n")
+        return
+
+    try:
+        if option2.get().upper() == "COMPRESS":
+            # Compress and write to new file
+            compressed_data = com(filepath)
+            output_path = "compressed_output.txt"
+            with open(output_path, "w") as f:
+                f.write(compressed_data.decode("utf-8"))
+            entry.delete(0, "end")
+            entry.insert(0, output_path)
+            text_output.insert("end", f"Compressed and saved to {output_path}\n")
+
+        elif option2.get().upper() == "DECOMPRESS":
+            # Decompress and write to new file
+            decompressed_data = de(filepath)
+            output_path = "decompressed_output.txt"
+            with open(output_path, "w", encoding="utf-8") as f:
+                f.write(decompressed_data.decode("utf-8"))
+            entry.delete(0, "end")
+            entry.insert(0, output_path)
+            text_output.insert("end", f"Decompressed and saved to {output_path}\n")
+    except Exception as e:
+        text_output.insert("end", f"Error: {str(e)}\n")
+
+        
+    
             
 def extract():
     text_output.delete("1.0","end")
@@ -81,10 +112,6 @@ def extract():
                 text_output.insert("end",f"Date  {count}:    {''.join(date)}" + "\n\n")
 
 
-            #for date in dates:
-             #   count +=1
-                #text_output.insert("end",  f"Date {count}:   {''.join(date)}" + "\n\n")
-
         if options == "address".upper():
             count = 0
             addresses = re.findall(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}",line)
@@ -100,6 +127,7 @@ root.minsize(600,400)
 root.state("zoom")
 root.iconbitmap("victor_logo_64x64.ico")
 root.configure(bg="lightgray")
+root.resizable(False, False)
 
 frame = Frame(root,bg="gray")
 frame.pack(fill="both",side="top")
@@ -124,10 +152,12 @@ entry1 = Entry(frame2,font=("Segoe UI", 14),width=15)
 entry1.pack(fill="both",side="left",ipadx=10,pady=1)
 Button(frame2,text="Search",relief="flat",bg="gray",fg="white",font=("Segoe UI", 10),command=search).pack(fill="both",side="left",ipadx=15,pady=1)
 
-entry2 = Entry(frame4,font=("Segoe UI", 14),width=10)
-entry2.pack(fill="both",side="left",ipadx=10,pady=1)
-Button(frame4,text="File Details",relief="flat",bg="gray",fg="white",font=("Segoe UI", 10),command=search).pack(fill="both",side="left",ipadx=15,pady=1)
+option2 = StringVar()
+ttk.Combobox(frame4,textvariable=option2,
+    values=["COMPRESS","DECOMPRESS"], state="readonly",
+    font=("Segoe UI", 10)).pack(fill="both",side="left",ipadx=5,pady=1)
 
+Button(frame4,text="convert",relief="flat",bg="gray",fg="white",font=("Segoe UI", 10),command=convert).pack(fill="both",side="left",ipadx=15,pady=1)
 
 option = StringVar()
 ttk.Combobox(frame3,textvariable=option,
