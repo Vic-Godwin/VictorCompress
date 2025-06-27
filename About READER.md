@@ -41,6 +41,6 @@ This upgrade turns VicReader into an efficient, self-contained analysis tool —
 ## 📁 File Overview
 
 ```bash
-vic_file_reader.py     # VicReader GUI interface
+VicReader.py     # VicReader GUI interface
 compress_module.py     # Compression logic used by Convert
 victor_logo_64x64.ico  # App icon
