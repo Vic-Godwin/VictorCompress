@@ -10,7 +10,7 @@ VictorCompress is a modern, user-friendly Python desktop app that allows you to 
 
 ![image](https://github.com/user-attachments/assets/05d1d282-3241-4b53-94f2-1c8554f5cb34)
 
-## the VicReader
+## The [About Reader.md](VicReader)
 ![image](https://github.com/user-attachments/assets/0c8005f0-e21d-4220-bcc5-c44f2c4541db)
 ---
 
@@ -40,12 +40,6 @@ cd VictorCompress
 pip install -r requirements.txt
 ```
 
-> If you don't have a `requirements.txt` yet, here's what to include:
-
-```
-ttkbootstrap>=1.10.1
-pyperclip>=1.8.2(optional). I used built in clipboard
-```
 
 ### 3. Run the App
 
@@ -66,7 +60,8 @@ VictorCompress/
 ├── victor_logo_64x64.png     # App logo image
 ├── victor_logo_64x64.ico     # App window icon
 ├── .gitignore                # Files ignored by Git
-|--- About Reader.me
+├── About Reader              # Learn more about VicReader
+├── requirements.txt           # Required packages (used by pip)
 ├── LICENSE                   # MIT License
 └── README.md                 # Project documentation
 ```
