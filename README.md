@@ -10,7 +10,7 @@ VictorCompress is a modern, user-friendly Python desktop app that allows you to 
 
 ![image](https://github.com/user-attachments/assets/05d1d282-3241-4b53-94f2-1c8554f5cb34)
 
-## The [VicReader](AboutReader.md)
+## The [VicReader](AboutReader.md) or [See The VicReader Repo for all Versions](https://github.com/Vic-Godwin/VicReader)
 ![image](https://github.com/user-attachments/assets/0c8005f0-e21d-4220-bcc5-c44f2c4541db)
 ---
 
@@ -157,4 +157,4 @@ git clone https://github.com/Vic-Godwin/VictorCompress.git
 🛠️ Developer | 📚 Teacher | 💡 Innovator  
 Passionate about user-friendly tools that solve real-world problems.
 
-🌍 Portfolio: [https://vic-godwin.github.io/victorgodwinchinonso/](https://vic-godwin.github.io/victorgodwinchinonso/)
+🌍 Portfolio: [Victor Godwin](https://vic-godwin.github.io/victorgodwinchinonso/)
