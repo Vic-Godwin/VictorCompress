@@ -22,6 +22,7 @@ VictorCompress is a modern, user-friendly Python desktop app that allows you to 
 - 📖 Open decompressed files in a custom reader (`readfile.py` or `vic_file_reader.py`)
 - 🌑 Dark-themed UI with `ttkbootstrap`
 - ✅ Progress bar and robust error handling
+- 🧩 Packaged as .exe using PyInstaller (standalone, no Python required)
 
 ---
 
@@ -106,6 +107,14 @@ pip install -r requirements.txt
 ```
 
 ---
+## What's new:
+
+```
+- Added resource_path() utility to support correct asset loading after packaging with PyInstaller.
+- Replaced direct icon/logo paths with resource_path() for .ico and .png files.
+- Ensures compatibility with the standalone .exe version.
+```
+
 
 ## 📘 .gitignore
 
