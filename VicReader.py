@@ -5,7 +5,17 @@ import re
 import sys,time
 import base64, zlib
 from compress_module import compress as com, decompress as de
+import sys,os
 
+def resource_path(relative_path):
+    """
+    Get absolute path to resource, works for dev and for PyInstaller EXE.
+    """
+    try:
+        base_path = sys._MEIPASS  # Temporary folder used by PyInstaller(Can't Forget my The Last Error.)
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 def read():
     file = open(entry.get(),'r')
@@ -26,7 +36,7 @@ def search():
 def convert():
     filepath = entry.get()
     if not filepath:
-        text_output.insert("end", "No file path provided.\n")
+        text_output.insert("1.0", "\nNo file path provided.\n")
         return
 
     try:
@@ -38,7 +48,7 @@ def convert():
                 f.write(compressed_data.decode("utf-8"))
             entry.delete(0, "end")
             entry.insert(0, output_path)
-            text_output.insert("end", f"Compressed and saved to {output_path}\n")
+            text_output.insert("1.0", f"\nCompressed and saved to {output_path}\n")
 
         elif option2.get().upper() == "DECOMPRESS":
             # Decompress and write to new file
@@ -48,7 +58,8 @@ def convert():
                 f.write(decompressed_data.decode("utf-8"))
             entry.delete(0, "end")
             entry.insert(0, output_path)
-            text_output.insert("end", f"Decompressed and saved to {output_path}\n")
+            text_output.delete("1.0",END)
+            text_output.insert("1.0", f"Decompressed and saved to {output_path}\nClick readfile to read it")
     except Exception as e:
         text_output.insert("end", f"Error: {str(e)}\n")
 
@@ -125,7 +136,7 @@ root.title('Read Your Text File')
 root.geometry("700x500")
 root.minsize(600,400)
 root.state("zoom")
-root.iconbitmap("victor_logo_64x64.ico")
+root.iconbitmap(resource_path("victor_logo_64x64.ico"))
 root.configure(bg="lightgray")
 root.resizable(False, False)
 
