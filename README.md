@@ -44,6 +44,7 @@ To run manually (developer mode):
 
 ```bash
 python VictorCompress.py
+```
 
 
 ## 🚀 Getting Started
