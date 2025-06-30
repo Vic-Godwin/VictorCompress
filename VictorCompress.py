@@ -6,7 +6,17 @@ from ttkbootstrap.constants import *
 from tkinter import filedialog, Canvas, PhotoImage, StringVar
 import tkinter as tk
 from compress_module import compress as com, decompress as de
+import sys
 
+def resource_path(relative_path):
+    """
+    Get absolute path to resource, works for dev and for PyInstaller EXE.
+    """
+    try:
+        base_path = sys._MEIPASS  # Temporary folder used by PyInstaller(Can't Forget my The Last Error.)
+    except Exception:
+        base_path = os.path.abspath(".")
+    return os.path.join(base_path, relative_path)
 
 # ------------------ GlowButton: Custom Button Class ------------------ #
 class GlowButton(tk.Canvas):
@@ -54,7 +64,8 @@ class VictorCompressApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Victor Compress - Lighten Your Load")
-        self.root.iconbitmap("victor_logo_64x64.ico")
+        # Use resource_path for icon (important for .exe packaging)
+        self.root.iconbitmap(resource_path("victor_logo_64x64.ico"))
         self.root.geometry("600x500")
         self.root.configure(bg="#101626")  # Simulate dark gradient background
         self.root.resizable(False, False)
@@ -68,7 +79,8 @@ class VictorCompressApp:
 
         # Logo (fallback to ⚡ if image not found)
         try:
-            self.logo = PhotoImage(file="victor_logo_64x64.png")
+            logo = resource_path("victor_logo_64x64.png")
+            self.logo = PhotoImage(file=logo)
             self.logo_label = tk.Label(self.title_frame, image=self.logo, bg="#101626")
         except:
             self.logo_label = tk.Label(self.title_frame, text="⚡", font=("Segoe UI", 24), fg="white", bg="#101626")
@@ -208,6 +220,8 @@ class VictorCompressApp:
         self.file_path.set("")
         self.status_label.config(text="Cleared")
         self.progress.stop()
+        self.root.clipboard_clear()
+        self.root.update()
 
     #------------------------Open Reader----------------------#
     def open_reader(self):
@@ -216,8 +230,8 @@ class VictorCompressApp:
             return
 
         try:
-            # Open vic__file_reader.py and pass the decompressed file as an argument
-            subprocess.Popen(["python", "vic_file_reader.py", self.output_file_path])
+            # Open readfile.py and pass the decompressed file as an argument
+            subprocess.Popen(["VicReader1.exe", self.output_file_path])
             self.status_label.config(text="Opening reader...")
 
         except Exception as e:
