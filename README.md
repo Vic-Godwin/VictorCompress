@@ -26,6 +26,26 @@ VictorCompress is a modern, user-friendly Python desktop app that allows you to 
 
 ---
 
+## 📁 Assets
+
+You can clone the repo or download the `.zip` below to get started immediately.
+
+👉 **[Download VictorCompress-v2.01.0.zip](https://github.com/Vic-Godwin/VictorCompress/releases/download/v2.01.0/VictorCompress-v2.01.0.zip)** – Includes:
+
+- 📂 `App setup file/`  
+  - 🖥️ `VictorCompress_2.01.0_Setup.exe` – Fully packaged Windows installer built using Inno Setup. Launches and installs the app like any standard Windows program.
+
+- 📂 `.exe files/`  
+  - 🗜️ `VictorCompress.exe` – The core compression/decompression tool  
+  - 📖 `VicReader.exe` – Companion reader for opening extracted files manually  
+  - 📖 `VicReader1.exe` – Auto-reader with real-time preview on decompression
+
+To run manually (developer mode):
+
+```bash
+python VictorCompress.py
+
+
 ## 🚀 Getting Started
 
 ### 1. Clone the Repository
@@ -166,4 +186,4 @@ git clone https://github.com/Vic-Godwin/VictorCompress.git
 🛠️ Developer | 📚 Teacher | 💡 Innovator  
 Passionate about user-friendly tools that solve real-world problems.
 
-🌍 Portfolio: [Victor Godwin](https://vic-godwin.github.io/victorgodwinchinonso/)
+🌍 Portfolio: [Victor Godwin](https://github.com/Vic-Godwin)
